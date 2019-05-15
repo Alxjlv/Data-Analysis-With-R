@@ -22,6 +22,35 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 library(s20x)
 setwd("C:/Users/Alex/Documents/GitHub/Engsci211Assignment2")
 sleepDep.df = read.table("sleepDeprivation.txt", header = TRUE)
+```
 
+Exploratory analysis
+I need both regression and analysis of variance
+```{r}
+hist(sleepDep.df$SleepHrs)
+#sleepDep.df = factor(sleepDep.df$Deprived)
+boxplot(SleepHrs ~ Deprived, data = sleepDep.df)
+```
+```{r}
+t.test(SleepHrs ~ Deprived, data = sleepDep.df)
+plot(SleepHrs ~ Deprived, data = sleepDep.df)
+onewayPlot(SleepHrs ~ Deprived, data = sleepDep.df)
+#ci = t.test(SleepHrs ~ Deprived, data = sleepDep.df)$conf.int
+#sleepDep.df = factor(sleepDep.df$SleepHrs)
+sleepDep.fit = lm(SleepHrs ~ Deprived, data = sleepDep.df)
+eovcheck(sleepDep.fit)
+```
+```{r}
+summary(sleepDep.fit)
+anova(sleepDep.fit)
+```
+```{r}
+summary1way(sleepDep.fit)
+multipleComp(sleepDep.fit)
+```
+```{r}
+normcheck(sleepDep.fit)
+cooks20x(sleepDep.fit)
+confint(sleepDep.fit)
 ```
 
