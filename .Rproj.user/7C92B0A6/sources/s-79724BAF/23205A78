@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1557884544465.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "23205A78",
+    "lastKnownWriteTime" : 27303540898857052,
+    "last_content_update" : 1557884544465,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "4BBFF227",
+        "caption" : "sleepDep.df",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=sleepDep.df&cache_key=4BBFF227",
+        "displayedObservations" : "85",
+        "environment" : "",
+        "expression" : "sleepDep.df",
+        "object" : "sleepDep.df",
+        "preview" : "0",
+        "totalObservations" : "85",
+        "variables" : "2"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
