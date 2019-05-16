@@ -1,2 +1,0 @@
-"0","#sleepDep.df = factor(sleepDep.df$Deprived)"
-"0","boxplot(SleepHrs ~ Deprived, data = sleepDep.df)"

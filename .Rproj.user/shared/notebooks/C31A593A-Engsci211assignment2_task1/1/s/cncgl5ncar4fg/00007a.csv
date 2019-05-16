@@ -1,4 +1,0 @@
-"0","#ci = t.test(SleepHrs ~ Deprived, data = sleepDep.df)$conf.int"
-"0","#sleepDep.df = factor(sleepDep.df$SleepHrs)"
-"0","sleepDep.fit = lm(SleepHrs ~ Deprived, data = sleepDep.df)"
-"0","eovcheck(sleepDep.fit)"

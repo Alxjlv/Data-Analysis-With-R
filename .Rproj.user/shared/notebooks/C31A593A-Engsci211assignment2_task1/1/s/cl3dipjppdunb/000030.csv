@@ -1,0 +1,2 @@
+"0","sleepDep.fit = lm(SleepHrs ~ Deprived, data = sleepDep.df)"
+"0","plot(sleepDep.fit)"
