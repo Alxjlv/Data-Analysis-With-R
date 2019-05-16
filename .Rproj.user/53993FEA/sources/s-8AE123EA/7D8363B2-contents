@@ -20,7 +20,7 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 
 ```{r}
 library(s20x)
-#laptop:/
+#laptop:
 #setwd("C:/Users/Alex/Documents/GitHub/Engsci211Assignment2")
 #home computer:
 setwd("I:/GitHub/Engsci 211/Engsci211Assignment2")
@@ -35,6 +35,8 @@ I need both regression and analysis of variance
 ```{r}
 boxplot(SleepHrs ~ Deprived, data = sleepDep.df)
 ```
+
+
 ```{r}
 t.test(SleepHrs ~ Deprived, data = sleepDep.df)
 plot(SleepHrs ~ Deprived, data = sleepDep.df)

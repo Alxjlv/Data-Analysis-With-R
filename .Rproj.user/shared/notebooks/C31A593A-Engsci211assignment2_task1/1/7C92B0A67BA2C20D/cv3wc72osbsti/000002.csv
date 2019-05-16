@@ -1,2 +1,0 @@
-"0","library(s20x)"
-"0","sleepDep.df = read.table(file.choose(), header = TRUE)"
