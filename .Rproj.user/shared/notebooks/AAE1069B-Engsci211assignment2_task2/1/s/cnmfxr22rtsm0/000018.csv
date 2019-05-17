@@ -1,0 +1,3 @@
+"0","energy.fit2 <- lm(Energy~Price, data = energy.df[-5,])"
+"0","layout20x(1,2)"
+"0","plot(energy.fit2,which=1)"
