@@ -1,6 +1,8 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
@@ -16,9 +18,9 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 ```{r}
 library(s20x)
 #laptop:/
-setwd("C:/Users/Alex/Documents/GitHub/Engsci211Assignment2")
+#setwd("C:/Users/Alex/Documents/GitHub/Engsci211Assignment2")
 #home computer:
-#setwd("I:/GitHub/Engsci 211/Engsci211Assignment2")
+setwd("I:/GitHub/Engsci 211/Engsci211Assignment2")
 energy.df = read.table("McDonalds.txt", header = TRUE)
 head(energy.df)
 ```

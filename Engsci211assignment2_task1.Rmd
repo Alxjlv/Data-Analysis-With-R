@@ -21,9 +21,9 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 ```{r}
 library(s20x)
 #laptop:/
-setwd("C:/Users/Alex/Documents/GitHub/Engsci211Assignment2")
+#setwd("C:/Users/Alex/Documents/GitHub/Engsci211Assignment2")
 #home computer:
-#setwd("I:/GitHub/Engsci 211/Engsci211Assignment2")
+setwd("I:/GitHub/Engsci 211/Engsci211Assignment2")
 sleepDep.df = read.table("sleepDeprivation.txt", header = TRUE)
 head(sleepDep.df)
 #Deprived is already a factor with the states yes and no
