@@ -1,5 +1,6 @@
 ---
-title: "R Notebook"
+title: "Engsci 211 Task 2: Energy vs price for McDonalds"
+author: "Alex Verkerk"
 output:
   pdf_document: default
   html_notebook: default
@@ -24,7 +25,7 @@ setwd("I:/GitHub/Engsci 211/Engsci211Assignment2")
 energy.df = read.table("McDonalds.txt", header = TRUE)
 head(energy.df)
 ```
-
+### Exploratory Analysis
 ```{r}
 trendscatter(Energy~Price, main = "Energy vs price", data = energy.df)
 ```
@@ -35,6 +36,7 @@ layout20x(1,2)
 plot(energy.fit,which=1)
 cooks20x(energy.fit)
 summary(energy.fit)
+normcheck(energy.fit)
 ```
 As we can see the data is quite heavily skewed, and, the observation at position 5 is heavily influential with a cooks distance of 0.7, which is greater than 0.4.
 ```{r}

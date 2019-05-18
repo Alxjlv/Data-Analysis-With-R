@@ -1,7 +1,6 @@
 ---
-title: "Engsci 211 Task 3"
+title: "Engsci 211 Task 3: Airline Delays"
 author: "Alex Verkerk"
-date: "17/05/2019"
 output:
   html_document:
     df_print: paged

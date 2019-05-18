@@ -1,23 +1,11 @@
 ---
-title: "Sleep Deprivation"
+title: "Engsci 211 Task 1: Sleep Deprivation"
+author: "Alex Verkerk"
 output:
   html_document:
     df_print: paged
   word_document: default
 ---
-
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
-
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
-
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
-
-
-
 ```{r}
 library(s20x)
 #laptop:/
@@ -36,7 +24,7 @@ summaryStats(SleepHrs ~ Deprived, data = sleepDep.df)
 ```
 * Centre: Mean sleep hours for deprived is lower than mean sleep hours for non deprived
 * Spread: The spread is slightly wider for non deprived as compared to deprived
-* Skew: Both Yes and No are fairly symmetrical without too significant of a tail.
+* Skew: Both Yes and No appear fairly symmetrical without too significant of a tail, so no significant skew
 ```{r}
 layout20x(1,2)
 eovcheck(SleepHrs ~ Deprived, data = sleepDep.df)
@@ -51,10 +39,16 @@ cooks20x(lm(SleepHrs ~ Deprived, data = sleepDep.df))
 ```{r}
 t.test(SleepHrs ~ Deprived, data = sleepDep.df, var.equal = TRUE)
 ```
-An estimate of the mean sleep hours for a student who is not sleep deprived is 7.1 hours (rounded) while an estimate for the mean sleep hours for a student who self reports being sleep deprived is around 6.1 hours
 
+### Methods and Assumption Checks
+We are attempting to find the mean difference between two groups of measurements, and as such we need to take a two sample t-test. We assume the measurements are independant.
+
+We checked Equality of Variance, and found that the EOV check for Yes and No appears to show equality of variance, however due to the way measurements were collected (as integer levels) this means that there could be no equality of variance as clusters of values will collapse into a single point. 
+The one-way plot we did alongside the EOV check shows that indeed there are clusters of values at certain levels, but equality of variance is roughly maintained, the plots appear to be spread similarly.
+
+We then checked the normality of the sample, and while the Q-Q plot looked slightly abnormal due to the integer levels of measurements, the histogram showed that our assumption of normality is satisfied.
+
+### Executive Summary
 We estimate that students who self reported no sleep deprivation slept for an average of 0.51 to 1.48 more hours than those who self reported being sleep deprived.
 
 We estimate that the mean number of hours slept by students who did not self-report feeling sleep deprived is between 0.5 and 1.5 hours more than the mean number of hours slept by students who did. <- denise's explanation
-
-The difference between the self reported sleep deprived mean and non self reported sleep deprived group mean is between 0.51 and 1.48 more hours of sleep
