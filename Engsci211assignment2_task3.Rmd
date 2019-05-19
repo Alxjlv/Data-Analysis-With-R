@@ -9,14 +9,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
-
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
-
 
 ```{r}
 library(s20x)
@@ -47,9 +39,10 @@ normcheck(delays.fit)
 ```
 
 ```{r}
-#layout20x(1,2)
 boxplot(log(dep_delay)~airline, data = delays.df)
+layout20x(1,2)
 eovcheck(log(dep_delay)~airline,data=delays.df)
+cooks20x(delays.fit)
 ```
 
 ```{r}
@@ -71,10 +64,17 @@ multipleComp(delays.fit2)
 exp(multipleComp(delays.fit2))[,1:3]
 ```
 
-### **Methods and Assumption Checks**
+### Methods and Assumption Checks
 
 The airline delays are numerical measurements made across 4 different groups of airlines. This suggests that we should use a one-way ANOVA or a linear regression model.
 
-Assuming that our observations are independent, we initially tested our assumption of equality of variance with a linear model, which was not satisfied. This is because both Delta and United appear to differ relatively significantly from American or Alaska.
+Assuming that our observations are independent, we initially tested our assumption of equality of variance with a linear model, which appears unsatisfied. This is because both Delta and United appear to differ relatively significantly from American or Alaska. There appears to be an influential observation.
 
-Our model is: $\log({\tt dep\_delays})_{i} = \beta_0 + \beta_1 \times {\tt America} + \beta_2 \times {\tt Delta} + \beta_3 \times {\tt United} + \varepsilon_{i}$ which explains
+The Q-Q plot of our sample showed evidence of relatively significant right skewing of our data. This implies that a multiplicative model should be used, as the median will provide a better measure of centrality.
+
+After applying a log transformation, the equality of variance and Normality assumptions appear to be satisfied. There are no longer any influential observations
+
+The model fitted is $\log({\tt dep\_delays})_{i} = \beta_0 + \beta_1 \times {\tt America_{i}} + \beta_2 \times {\tt Delta_{i}} + \beta_3 \times {\tt United_{i}} + \varepsilon_{i}$ where $\tt America_i$ is 1 when looking at the delays for America airlines, $\tt Delta_i$ is 1 when looking at the delays for Delta airlines
+
+### Executive Summary
+

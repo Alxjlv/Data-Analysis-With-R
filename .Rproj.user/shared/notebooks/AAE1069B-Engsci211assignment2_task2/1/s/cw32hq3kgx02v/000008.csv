@@ -1,0 +1,3 @@
+"0","library(s20x)"
+"0","energy.df = read.table(""McDonalds.txt"", header = TRUE)"
+"0","head(energy.df)"

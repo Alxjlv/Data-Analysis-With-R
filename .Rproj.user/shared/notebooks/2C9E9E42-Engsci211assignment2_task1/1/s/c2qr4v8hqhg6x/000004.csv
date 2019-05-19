@@ -1,6 +1,0 @@
-"0","library(s20x)"
-"0","#laptop:"
-"0","#setwd(""C:/Users/Alex/Documents/GitHub/Engsci211Assignment2"")"
-"0","setwd(""I:/GitHub/Engsci 211/Engsci211Assignment2"")"
-"0","sleepDep.df = read.table(""sleepDeprivation.txt"", header = TRUE)"
-"0","head(sleepDep.df)"
