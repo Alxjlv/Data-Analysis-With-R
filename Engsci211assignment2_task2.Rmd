@@ -17,6 +17,10 @@ head(energy.df)
 trendscatter(Energy~Price, main = "Energy vs price", data = energy.df)
 ```
 
+* Centre: The mean for price vs energy appears to be linear to a certain extent, and falls within the middle of the data without being pushed to any one side significantly.
+* Spread: The spread of our data appears relatively uniform, with most observations clustered around the mean.
+* Skew: It is difficult to comment on the skew from this view of the scatter plot but it appears mostly unskewed.
+
 ##### Original EOV and normality checks:
 
 ```{r}
@@ -24,11 +28,11 @@ energy.fit = lm(Energy~Price, data = energy.df)
 layout20x(1,2)
 plot(energy.fit,which=1)#Equality of variance check with a trend line
 cooks20x(energy.fit)
-summary(energy.fit)
 normcheck(energy.fit)
+summary(energy.fit)
 ```
 
-The observation at position 5 is heavily influential with a cooks distance of 0.7, which is greater than 0.4.
+The observation at position 5 is heavily influential with a cooks distance of 0.7, which is greater than 0.4 and suggests removal.
 
 ##### EOV & normality checks with observation 5 removed:
 
@@ -44,6 +48,9 @@ As we can see, the cooks distance plot no longer shows any influential observati
 ```{r}
 trendscatter(Energy~Price, data = energy.df[-5,])
 ```
+* Centre: In this updated model, the mean appears bent but still retains a roughly linear shape.
+* Spread: The data appears slightly unevenly spread, with the upper end having a wider spread than the lower.
+* Skew: Again, it is difficult to comment on the skew, but the data doesn't appear to be clustered too strongly at either end of this scatter plot.
 
 ```{r}
 normcheck(energy.fit2)
@@ -67,12 +74,17 @@ A scatter plot of price vs energy of McDonalds meals shows a roughly linear asso
 The equality of variance assumption for our model appears to unsatisfied, bending quite dramatically. The assumption of Normality appears satisfied but looks slightly abnormal.
 
 We observe an influential observation (observation 5) in the Cooks plot. Upon removal of observation 5, the coefficient changes by more than 1 standard error and thus should be removed. (For $\beta_1$ the coefficient changes from 284.37 to 245.54, which is a drop of 38.83 compared to a standard error of 37.79.)
+After this our assumption of Equality of Variance appears to be satisfied, alongside our assumption of Normality.
 
-The multiple $R^2$ value of our model is quite low (less than 80%), which means the overall variability of our sample is not fully accounted for.
+The model we fitted is ${\tt Energy_i} = \beta_0+\beta_1\times price_i + \epsilon_i$ where $\varepsilon_{i} \overset{\text{iid}}{\sim} N(0, \sigma^2)$.
+
+The multiple $R^2$ value of our model is fairly low (less than 80%), which means the overall variability of our sample is not fully accounted for.
 
 ### Executive summary
 
-We estimate that for every dollar spent at McDonalds, the mean number of kilojoules will increase by somewhere between 167 to 324kJ.
+This data was collected to find a relationship between energy content of McDonalds food and its price, in order to judge the expected energy gained from purchasing food for $5.90.
+
+We found that as price increased, the energy content of the food also increased. Discounting negative energy contents, a McDonalds meal will begin with up to 587kJ of energy, and We estimate that for every additional dollar spent, the mean number of kilojoules will increase by somewhere between 167 to 324kJ.
 
 Our model only explains 66.8% of the variation between price and energy values of meals at McDonalds, which means our model is likely not a reasonable model for prediction.
 
