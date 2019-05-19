@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1558225740619.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1481694176",
+    "id" : "4BAEC03F",
+    "lastKnownWriteTime" : 1558225903,
+    "last_content_update" : 1558225903851,
+    "path" : "~/GitHub/Engsci211Assignment2/Engsci211assignment2_task3.Rmd",
+    "project_path" : "Engsci211assignment2_task3.Rmd",
+    "properties" : {
+        "cursorPosition" : "23,0",
+        "last_setup_crc32" : "3F4B848Dbb338d19",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

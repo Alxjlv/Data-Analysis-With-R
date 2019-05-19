@@ -1,0 +1,8 @@
+"0","#delays.fit = lm(dep_delay~airline, data = delays.df)"
+"0","#layout20x(1,2)"
+"0","#layout.matrix <- matrix(c(0,1),nrow=1,ncol=2)"
+"0","#layout(mat=layout.matrix,"
+"0","      # heights = c(1),#Height of the row"
+"0","       #widths = c(2,2)) #Widths of the two columns"
+"0","#par(mar = c(0,2,2,0))"
+"0","plot(dep_delay~airline,data = delays.df)"

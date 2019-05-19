@@ -1,4 +1,0 @@
-"0","t.test(Energy~Price, data=energy.df)"
-"2","Error in t.test.formula(Energy ~ Price, data = energy.df) : 
-  grouping factor must have exactly 2 levels
-"
