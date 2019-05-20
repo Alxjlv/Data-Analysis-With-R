@@ -1,2 +1,0 @@
-"0","delays.fit = lm(dep_delay~airline, data = delays.df)"
-"0","normcheck(delays.fit)"

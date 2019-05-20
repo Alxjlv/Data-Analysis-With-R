@@ -5,16 +5,16 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "530191478",
+    "hash" : "1607653962",
     "id" : "4BAEC03F",
-    "lastKnownWriteTime" : 1558254480,
-    "last_content_update" : 1558254480093,
+    "lastKnownWriteTime" : 1558325646,
+    "last_content_update" : 1558325646803,
     "path" : "~/GitHub/Engsci211Assignment2/Engsci211assignment2_task3.Rmd",
     "project_path" : "Engsci211assignment2_task3.Rmd",
     "properties" : {
-        "cursorPosition" : "76,320",
-        "last_setup_crc32" : "BF6A4A10bb338d19",
-        "scrollLine" : "61"
+        "cursorPosition" : "34,146",
+        "last_setup_crc32" : "B3FA6B9Ebb338d19",
+        "scrollLine" : "34"
     },
     "read_only" : false,
     "read_only_alternatives" : [

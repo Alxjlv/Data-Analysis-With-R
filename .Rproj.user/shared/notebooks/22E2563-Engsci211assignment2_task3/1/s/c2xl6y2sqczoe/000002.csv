@@ -1,2 +1,0 @@
-"0","delays.fit2 = lm(log(dep_delay)~airline,data=delays.df)"
-"0","normcheck(delays.fit2,shapiro.wilk = TRUE)"

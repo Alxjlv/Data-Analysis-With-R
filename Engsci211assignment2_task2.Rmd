@@ -17,9 +17,7 @@ head(energy.df)
 trendscatter(Energy~Price, main = "Energy vs price", data = energy.df)
 ```
 
-* Centre: The mean for price vs energy appears to be linear to a certain extent, and falls within the middle of the data without being pushed to any one side significantly.
-* Spread: The spread of our data appears relatively uniform, with most observations clustered around the mean.
-* Skew: It is difficult to comment on the skew from this view of the scatter plot but it appears mostly unskewed.
+There appears to be a positive linear relationship between the price of McDonalds meals and energy in kilojoules you can expect from the meal. The scatter is approximately constant.
 
 ##### Original EOV and normality checks:
 
@@ -48,9 +46,7 @@ As we can see, the cooks distance plot no longer shows any influential observati
 ```{r}
 trendscatter(Energy~Price, data = energy.df[-5,])
 ```
-* Centre: In this updated model, the mean appears bent but still retains a roughly linear shape.
-* Spread: The data appears slightly unevenly spread, with the upper end having a wider spread than the lower.
-* Skew: Again, it is difficult to comment on the skew, but the data doesn't appear to be clustered too strongly at either end of this scatter plot.
+The previous positive linear relationship appears roughly maintained, with an increase in scatter toward the right hand side of the graph. This scatter isn't particularly concerning as it is likely just due to lack of data points at the $5+ range.
 
 ```{r}
 normcheck(energy.fit2)

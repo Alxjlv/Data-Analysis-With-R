@@ -1,2 +1,0 @@
-"0","#par(mar = c(3,3,3,3))"
-"0","eovcheck(dep_delay~airline, data = delays.df)"

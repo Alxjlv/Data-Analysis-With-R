@@ -20,7 +20,7 @@ head(delays.df)
 plot(dep_delay~airline,data = delays.df)
 summaryStats(dep_delay~airline,data = delays.df)
 ```
-* Centre: The data for each airline appears to be bunched up toward the bottom. This makes the mean a poor measure of centrality, as the mean for all the airlines is significantly larger than any of the means. Delta has the lowest mean & median values, with the mean & median for Alaska second lowest. United has a lower mean & median than American.
+* Centre: The data for each airline appears to be bunched up toward the bottom. This makes the mean a poor measure of centrality, as the mean for all the airlines is significantly larger than any of the medians. Delta has the lowest mean & median values, with the mean & median for Alaska second lowest. United has a lower mean & median than American.
 * Spread: American is the most spread, United second most spread, Alaska third, and Delta least spread. The spreads differe relatively significantly between all airlines.
 * Skew: All 4 samples appear to show evidence of right skew, as evidenced by the normality check below.
 ```{r}
@@ -32,7 +32,7 @@ modcheck(delays.fit)
 boxplot(log(dep_delay)~airline, data = delays.df)
 summaryStats(log(dep_delay)~airline, data = delays.df)
 ```
-* Centre: Upon log transformation, the median delay for all of the airlines appear to be within about 1 unit of each other - with Delta significantly lower than the other airlines.
+* Centre: Upon log transformation, the median delay for all of the airlines appear to be within about 1 unit of each other - with Delta relatively lower than the other airlines.
 * Spread: The spread of all samples is now very similar with a midspread of around 2.
 * Skew: There is no evidence to suggest any skew remains after the data has been transformed.
 

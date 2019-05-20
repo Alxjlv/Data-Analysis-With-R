@@ -1,0 +1,3 @@
+"0","energy.fit = lm(Energy~Price, data = energy.df)"
+"0","layout20x(1,2)"
+"0","plot(energy.fit,which=1)#Equality of variance check with a trend line"

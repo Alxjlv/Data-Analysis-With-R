@@ -1,0 +1,2 @@
+"0","delays.fit = lm(dep_delay~airline, data = delays.df)"
+"0","modcheck(delays.fit)"
