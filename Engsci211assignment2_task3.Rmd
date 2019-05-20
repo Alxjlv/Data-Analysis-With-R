@@ -1,7 +1,8 @@
 ---
-title: "Engsci 211 Task 3: Airline Delays"
+title: 'Engsci 211 Task 3: Airline Delays'
 author: "Alex Verkerk"
 output:
+  word_document: default
   html_document:
     df_print: paged
 ---

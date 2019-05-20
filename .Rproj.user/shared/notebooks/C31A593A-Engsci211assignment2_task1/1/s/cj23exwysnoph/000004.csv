@@ -1,1 +1,3 @@
-"0","#Deprived is already a factor with the states yes and no"
+"0","library(s20x)"
+"0","sleepDep.df = read.table(""sleepDeprivation.txt"", header = TRUE)"
+"0","head(sleepDep.df)"
