@@ -2,9 +2,9 @@
 title: "Engsci 211 Task 1: Sleep Deprivation"
 author: "Alex Verkerk"
 output:
-  word_document: default
   html_document:
     df_print: paged
+  word_document: default
 ---
 ```{r}
 library(s20x)
@@ -17,9 +17,9 @@ head(sleepDep.df)
 boxplot(SleepHrs ~ Deprived, main = "Sleep hours as described by self reported deprivation", data = sleepDep.df)
 summaryStats(SleepHrs ~ Deprived, data = sleepDep.df)
 ```
-* Centre: Mean sleep hours for deprived is lower than mean sleep hours for non deprived as seen by the summary stats. 
+* Centre: Mean sleep hours for deprived/'Yes' is lower than mean sleep hours for non-deprived/'No' as seen by the summary stats. 
 * Spread: The spread is slightly wider (1.5) for non deprived as compared to deprived (1.0)
-* Skew: Both Yes and No appear fairly symmetrical without too significant of a tail, so no significant skew. The boxplots for the two appear to be quite similar.
+* Skew: Both categories 'Yes' and 'No' appear fairly symmetrical without too significant of a tail, so no significant skew.
 ```{r}
 layout20x(1,2)
 eovcheck(SleepHrs ~ Deprived, data = sleepDep.df)
@@ -36,10 +36,11 @@ t.test(SleepHrs ~ Deprived, data = sleepDep.df, var.equal = TRUE)
 ```
 
 ### Methods and Assumption Checks
+
 We are attempting to find the mean difference between two groups of measurements, and as such we need to take a two sample t-test. We assume the individual reports of sleep hours and deprivation are independant measurements.
 
-We checked Equality of Variance, and found that the EOV check for Yes and No appears to show equality of variance, however due to the way measurements were collected (as integer levels) this means that there could be no equality of variance as clusters of values will collapse into a single point. 
-The one-way plot we did alongside the EOV check shows that indeed there are clusters of values at certain levels, but our assumption of equality of variance is satisfied, as the plots appear to be spread similarly.
+We checked Equality of Variance, and found that the EOV check for Yes and No appears to show equality of variance. However, due to the way measurements were collected (as integer levels) this means that there could be no equality of variance as clusters of values will collapse into a single point. 
+The one-way plot we did alongside the EOV check shows that indeed there are clusters of values at certain levels, but our assumption of equality of variance is satisfied, as the plots appear to be distributed similarly.
 
 We then checked the normality of the sample, and while the Q-Q plot looked slightly abnormal due to the integer levels of measurements, the histogram showed that our assumption of normality is satisfied.
 On the cooks distance plot, no influential observations were observed.
@@ -49,6 +50,7 @@ This allows us to use a standard two sample t-test. This had a p-value of $9.3\t
 The model fitted is $SleepHrs_{ij} = \mu + \alpha_i + \epsilon_{ij}$ where $\alpha_i$ is the effect of whether the person self-reports feeling sleep deprived or not, and $\varepsilon_{ij} \overset{\text{iid}}{\sim} N(0, \sigma^2)$.
 
 ### Executive Summary
+
 This data was collected to see if those who self-report sleep deprivation sleep on average for less time than those who self-report not feeling sleep deprived.
 
 We have observed that those who self-report that they feel sleep deprived do sleep, on average, less than those who self-report not feeling sleep deprived.

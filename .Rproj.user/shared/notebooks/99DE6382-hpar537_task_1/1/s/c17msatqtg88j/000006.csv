@@ -1,0 +1,4 @@
+"0","library(s20x)"
+"0","sleepD.df = read.table(file.choose(), header = TRUE)"
+"0","sleep.fit = lm(SleepHrs ~ Deprived, data = sleepD.df)"
+"0","head(sleepD.df)"

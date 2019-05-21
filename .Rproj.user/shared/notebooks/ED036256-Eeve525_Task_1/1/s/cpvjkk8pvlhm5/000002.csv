@@ -1,0 +1,2 @@
+"0","sleep.fit = lm(SleepHrs ~ Deprived, data = sleep.df)"
+"0","normcheck(sleep.fit)"

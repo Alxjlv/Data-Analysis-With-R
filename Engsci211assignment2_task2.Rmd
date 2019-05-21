@@ -2,10 +2,10 @@
 title: 'Engsci 211 Task 2: Energy vs price for McDonalds'
 author: "Alex Verkerk"
 output:
-  word_document: default
-  html_notebook: default
   html_document:
     df_print: paged
+  html_notebook: default
+  word_document: default
 ---
 
 ```{r}
@@ -18,7 +18,7 @@ head(energy.df)
 trendscatter(Energy~Price, main = "Energy vs price", data = energy.df)
 ```
 
-There appears to be a positive linear relationship between the price of McDonalds meals and energy in kilojoules you can expect from the meal. The scatter is approximately constant.
+There appears to be a positive linear relationship between the price of McDonalds meals and energy in kilojoules you can expect from the meal. The scatter is approximately constant. The obervation of constant scatter is hard to justify with such a small sample size.
 
 ##### Original EOV and normality checks:
 
@@ -27,11 +27,14 @@ energy.fit = lm(Energy~Price, data = energy.df)
 layout20x(1,2)
 plot(energy.fit,which=1)#Equality of variance check with a trend line
 cooks20x(energy.fit)
+```
+
+The observation at position 5 is heavily influential with a cooks distance of 0.7, which is greater than 0.4 and suggests that the point should be removed.
+
+```{r}
 normcheck(energy.fit)
 summary(energy.fit)
 ```
-
-The observation at position 5 is heavily influential with a cooks distance of 0.7, which is greater than 0.4 and suggests removal.
 
 ##### EOV & normality checks with observation 5 removed:
 
@@ -43,7 +46,7 @@ cooks20x(energy.fit2)
 summary(energy.fit2)
 ```
 
-As we can see, the cooks distance plot no longer shows any influential observations above 0.4. Similarly, we can see that by removing the observation the estimate for price shifts from 284.37 to 245.54, which is a change of 38.83, which is a change of more than 35.67, which is the standard error, which implies observation 5  should be removed.
+As we can see, the cooks distance plot no longer shows any influential observations above 0.4. Similarly, we can see that by removing the observation the estimate for price shifts from 284.37 to 245.54, which is a change of 38.83, which is a change of more than 1 standard error (larger than both 35.67 or 37.79), which implies observation 5  should be removed.
 ```{r}
 trendscatter(Energy~Price, data = energy.df[-5,])
 ```
@@ -70,16 +73,16 @@ A scatter plot of price vs energy of McDonalds meals shows a roughly linear asso
 
 The equality of variance assumption for our model appears to unsatisfied, bending quite dramatically. The assumption of Normality appears satisfied but looks slightly abnormal.
 
-We observe an influential observation (observation 5) in the Cooks plot. Upon removal of observation 5, the coefficient changes by more than 1 standard error and thus should be removed. (For $\beta_1$ the coefficient changes from 284.37 to 245.54, which is a drop of 38.83 compared to a standard error of 37.79.)
+We observe an influential observation (observation 5) in the Cooks plot. Upon removal of observation 5, the coefficient changes by more than 1 standard error and thus is be removed.
 After this our assumption of Equality of Variance appears to be satisfied, alongside our assumption of Normality.
 
 The model we fitted is ${\tt Energy_i} = \beta_0+\beta_1\times price_i + \epsilon_i$ where $\varepsilon_{i} \overset{\text{iid}}{\sim} N(0, \sigma^2)$.
 
-The multiple $R^2$ value of our model is fairly low (less than 80%), which means the overall variability of our sample is not fully accounted for.
+The multiple $R^2$ value of our model is fairly low at 66.8% (less than 80%), which means the overall variability of our sample is not fully accounted for.
 
 ### Executive summary
 
-This data was collected to find a relationship between energy content of McDonalds food and its price, in order to judge the expected energy gained from purchasing food for $5.90.
+This data was collected to find a relationship between the energy content of McDonalds food and its price, in order to judge the expected energy gained from consuming food purchased for $5.90.
 
 We found that as price increased, the energy content of the food also increased. Discounting negative energy contents, a McDonalds meal will begin with up to 587kJ of energy, and We estimate that for every additional dollar spent, the mean number of kilojoules will increase by somewhere between 167 to 324kJ.
 
